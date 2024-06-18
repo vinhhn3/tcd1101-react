@@ -1,9 +1,10 @@
 import React from "react";
+import Home from "../pages/Home";
 
 function Body() {
   return (
     <div>
-      <h1>Body Layout</h1>
+      <Home />
     </div>
   );
 }
