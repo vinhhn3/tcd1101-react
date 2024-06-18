@@ -1,5 +1,5 @@
-import axios from "axios";
 import React, { useState } from "react";
+import { searchUsers } from "../api/GitHubApi";
 import Search from "../components/Search/Search";
 import Users from "../components/User/Users";
 
@@ -8,10 +8,8 @@ function Home() {
 
   const handleSearch = async (text) => {
     console.log(text);
-    const response = await axios.get(
-      `https://api.github.com/search/users?q=${text}`
-    );
-    setUsers(response.data.items);
+    const data = await searchUsers(text);
+    setUsers(data);
   };
   return (
     <div>

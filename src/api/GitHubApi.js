@@ -9,4 +9,9 @@ const getUsers = async () => {
   return response.data;
 };
 
-export { getUsers };
+const searchUsers = async (text) => {
+  const response = await axiosClient.get(`/search/users?q=${text}`);
+  return response.data.items;
+};
+
+export { getUsers, searchUsers };
