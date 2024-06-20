@@ -11,9 +11,14 @@ function Home() {
     const data = await searchUsers(text);
     setUsers(data);
   };
+
+  const clearUsers = () => {
+    setUsers([]);
+  };
+
   return (
     <div className="container">
-      <Search handleSearch={handleSearch} />
+      <Search clearUsers={clearUsers} handleSearch={handleSearch} />
       <Users users={users} />
     </div>
   );

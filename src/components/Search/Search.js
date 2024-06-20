@@ -11,13 +11,26 @@ function Search(props) {
     props.handleSearch(text);
   };
 
+  const handleClear = () => {
+    console.log("clear");
+    setText("");
+    props.clearUsers();
+  };
+
   return (
     <div>
-      <input onChange={handleChange} type="text" placeholder="Search..." />
+      <input
+        value={text}
+        onChange={handleChange}
+        type="text"
+        placeholder="Search..."
+      />
       <button onClick={handleSearch} className="btn btn-block btn-primary">
         Search
       </button>
-      <button className="btn btn-block btn-secondary">Clear</button>
+      <button onClick={handleClear} className="btn btn-block btn-secondary">
+        Clear
+      </button>
     </div>
   );
 }
