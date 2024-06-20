@@ -1,20 +1,15 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import GithubApi from "../api/GitHubApi";
+import GithubContext from "../context/github/githubContext";
 
 function User() {
   const { loginId } = useParams();
-  const [userData, setUserData] = useState({});
+  const githubContext = useContext(GithubContext);
+  const { user, getUser } = githubContext;
 
   useEffect(() => {
-    getUserDetail();
+    getUser(loginId);
   }, []);
-
-  const getUserDetail = async () => {
-    const data = await GithubApi.getUser(loginId);
-    console.log(data);
-    setUserData(data);
-  };
 
   const {
     name,
@@ -31,7 +26,7 @@ function User() {
     blog,
     webiste,
     public_gists,
-  } = userData;
+  } = user;
 
   return (
     <div className="container">

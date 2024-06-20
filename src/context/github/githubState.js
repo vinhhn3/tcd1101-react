@@ -20,10 +20,16 @@ const GithubState = (props) => {
   };
 
   const getUser = async (login) => {
-    const response = await GithubApi.getUserByLogin(login);
+    const response = await GithubApi.getUser(login);
     dispatch({
       type: "GET_USER",
       payload: response.data,
+    });
+  };
+
+  const clearUsers = () => {
+    dispatch({
+      type: "CLEAR_USERS",
     });
   };
 
@@ -34,6 +40,7 @@ const GithubState = (props) => {
         user: state.user,
         searchUsers,
         getUser,
+        clearUsers,
       }}
     >
       {props.children}
