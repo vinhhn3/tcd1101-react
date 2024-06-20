@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { getUsers } from "../api/GitHubApi";
 
 function User() {
   const { loginId } = useParams();
@@ -11,9 +11,9 @@ function User() {
   }, []);
 
   const getUserDetail = async () => {
-    const response = await axios.get("https://api.github.com/users/" + loginId);
-    console.log(response.data);
-    setUserData(response.data);
+    const data = await getUsers(loginId);
+    console.log(data);
+    setUserData(data);
   };
 
   return (
