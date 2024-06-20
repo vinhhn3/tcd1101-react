@@ -17,6 +17,7 @@ function Search(props) {
       <button onClick={handleSearch} className="btn btn-block btn-primary">
         Search
       </button>
+      <button className="btn btn-block btn-secondary">Clear</button>
     </div>
   );
 }
