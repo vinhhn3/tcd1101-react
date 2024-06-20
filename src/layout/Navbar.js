@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="navbar bg-primary">
-      <h2>This Is My FYP</h2>
+      <h2>TCD1101 Github Finder</h2>
       <ul>
         <li>
           <Link to="/">Home</Link>
