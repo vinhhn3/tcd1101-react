@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { searchUsers } from "../api/GitHubApi";
+import GithubApi from "../api/GitHubApi";
 import Search from "../components/Search/Search";
 import Users from "../components/User/Users";
 
@@ -8,7 +8,7 @@ function Home() {
 
   const handleSearch = async (text) => {
     console.log(text);
-    const data = await searchUsers(text);
+    const data = await GithubApi.getUsers(text);
     setUsers(data);
   };
 

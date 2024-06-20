@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getUser } from "../api/GitHubApi";
+import GithubApi from "../api/GitHubApi";
 
 function User() {
   const { loginId } = useParams();
@@ -11,7 +11,7 @@ function User() {
   }, []);
 
   const getUserDetail = async () => {
-    const data = await getUser(loginId);
+    const data = await GithubApi.getUser(loginId);
     console.log(data);
     setUserData(data);
   };

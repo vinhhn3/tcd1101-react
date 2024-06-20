@@ -4,19 +4,17 @@ const axiosClient = axios.create({
   baseURL: "https://api.github.com",
 });
 
-const getUsers = async () => {
-  const response = await axiosClient.get("/users");
-  return response.data;
+const getUsers = (query) => {
+  return axiosClient.get(`/search/users?q=${query}`);
 };
 
-const searchUsers = async (text) => {
-  const response = await axiosClient.get(`/search/users?q=${text}`);
-  return response.data.items;
+const getUser = (login) => {
+  return axiosClient.get(`/users/${login}`);
 };
 
-const getUser = async (login) => {
-  const response = await axiosClient.get(`/users/${login}`);
-  return response.data;
+const GithubApi = {
+  getUsers,
+  getUser,
 };
 
-export { getUser, getUsers, searchUsers };
+export default GithubApi;
