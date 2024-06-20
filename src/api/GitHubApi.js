@@ -19,4 +19,4 @@ const getUser = async (login) => {
   return response.data;
 };
 
-export { getUsers, searchUsers };
+export { getUser, getUsers, searchUsers };
