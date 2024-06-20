@@ -1,12 +1,21 @@
 import React from "react";
 
-function UserItem(props) {
+const UserItem = (props) => {
+  const { login, avatar_url, html_url } = props.user;
   return (
-    <div>
-      <p>Login: {props.user.login}</p>
-      <p>Id: {props.user.id}</p>
+    <div className="card text-center">
+      <img
+        alt="avatar"
+        src={avatar_url}
+        className="round-img"
+        style={{ width: "60px" }}
+      />
+      <h3>{login}</h3>
+      <a href="" className="btn btn-dark btn-sm">
+        More
+      </a>
     </div>
   );
-}
+};
 
 export default UserItem;

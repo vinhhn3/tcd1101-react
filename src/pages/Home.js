@@ -12,8 +12,7 @@ function Home() {
     setUsers(data);
   };
   return (
-    <div>
-      <h1>Home Page</h1>
+    <div className="container">
       <Search handleSearch={handleSearch} />
       <Users users={users} />
     </div>
